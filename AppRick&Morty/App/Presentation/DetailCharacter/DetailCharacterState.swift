@@ -19,6 +19,7 @@ final class DetailCharacterState: ObservableObject {
         static let gender = "Gender:"
         static let origin = "Origin:"
         static let location = "Location:"
+        static let episodes = "Episodes:"
     }
 }
 

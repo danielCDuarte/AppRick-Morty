@@ -52,12 +52,10 @@ struct DetailCharacterView<ViewModelType>: View where ViewModelType: DetailChara
             genderRow
             originRow
             locationRow
+            episodesRow
             Color.clear
         }
         .padding(15)
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(color: .black.opacity(0.1), radius: 12, x: 0, y: 2)
         .padding(.horizontal, 10)
         .padding(.bottom, 15)
     }
@@ -141,6 +139,23 @@ struct DetailCharacterView<ViewModelType>: View where ViewModelType: DetailChara
             Text(character?.location.name ?? "")
                 .font(.system(size: 12, weight: .regular))
                 .foregroundColor(.gray.opacity(0.5))
+        }
+    }
+    
+    private var episodesRow: some View {
+        HStack(alignment: .top) {
+            Text(DetailCharacterState.Constants.episodes)
+                .font(.system(size: 12, weight: .semibold))
+                .foregroundColor(.gray)
+            Spacer()
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(character?.episode ?? [], id: \.self) { episode in
+                    Text(episode.name)
+                        .font(.system(size: 12, weight: .regular))
+                        .foregroundColor(.gray.opacity(0.5))
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                }
+            }
         }
     }
 }

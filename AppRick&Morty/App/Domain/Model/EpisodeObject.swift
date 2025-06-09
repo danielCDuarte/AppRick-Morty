@@ -8,6 +8,7 @@
 
 import Foundation
 
-struct EpisodeObject {
+struct EpisodeObject: Hashable {
+    var id: UUID = UUID()
     var name: String
 }

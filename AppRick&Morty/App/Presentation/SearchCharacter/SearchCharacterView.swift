@@ -11,6 +11,7 @@ import SkeletonUI
 
 struct SearchCharacterView<ViewModelType>: View where ViewModelType: SearchCharacterViewModelType {
     @ObservedObject var viewModel: ViewModelType = Resolver.resolve()
+    @State private var isRefreshing = false
     
     var body: some View {
         NavigationStack {
@@ -21,13 +22,22 @@ struct SearchCharacterView<ViewModelType>: View where ViewModelType: SearchChara
                 }label: {
                     CharacterCell(character: character, loading: loading)
                 }
+                .onAppear {
+                    viewModel.loadMoreContentIfNeeded(currentItem: character)
+                }
             }
+                         .refreshable {
+                             isRefreshing = true
+                             viewModel.refreshData()
+                             isRefreshing = false
+                         }
                          .scrollContentBackground(.hidden)
                          .navigationBarTitle(SearchCharacterState.Constants.title, displayMode: .inline)
                          .searchable(
                             text: $viewModel.state.searchText,
                             placement: .navigationBarDrawer(displayMode: .always)
                          )
+                         .autocorrectionDisabled()
                          .textInputAutocapitalization(.never)
                          .onChange(of: viewModel.state.searchText) {
                              viewModel.searchCharacter(query: viewModel.state.searchText)

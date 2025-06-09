@@ -59,8 +59,5 @@ struct CharacterCell: View {
         }
         .padding(10)
         .background(Color.white)
-        .cornerRadius(10)
-        .shadow(color: .black.opacity(0.1), radius: 12, x: 0, y: 2)
-        .padding(.horizontal, 10)
     }
 }

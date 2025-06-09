@@ -21,5 +21,6 @@ final class SearchCharacterState: ObservableObject {
         static let error = "An error has occurred."
         static let errorMessage = "An error has occurred, please try again later."
         static let accept = "Ok"
+        static let searchCharacters = "Search characters"
     }
 }
