@@ -7,34 +7,28 @@
 
 import Foundation
 
-struct CharacterObject {
-    let id: String
-    let name: String
-    let status: String
-    let species: String
-    let type: String
-    let gender: String
-    let origin: LocationObject
-    let location: LocationObject
-    let image: String
-    let episode: [EpisodeObject]
-    let created: String
+enum StatusCharacter: String {
+    case Alive
+    case Dead
+    case unknown
 }
 
-struct LocationObject {
-    let id: String
-    let name: String
-    let type: String?
-    let dimension: String?
-    let residents: [CharacterObject]?
-    let created: String?
+enum GenderCharacter: String {
+    case Male
+    case Female
+    case unknown
 }
 
-struct EpisodeObject {
-    let id: String
-    let name: String
-    let episode: String
-    let air_date: String?
-    let characters: [CharacterObject]?
-    let created: String
+struct CharacterObject: Identifiable {
+    var id: String
+    var name: String
+    var status: StatusCharacter
+    var species: String
+    var type: String
+    var gender: GenderCharacter
+    var origin: LocationObject
+    var location: LocationObject
+    var image: String
+    var episode: [EpisodeObject]
+    var created: String
 }

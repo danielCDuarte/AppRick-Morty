@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct AppRick_MortyApp: App {
+    let factory = Factory(baseUrl: DataConstants.baseUrl)
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SearchCharacterView<SearchCharacterViewModel>()
         }
     }
 }

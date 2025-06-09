@@ -15,7 +15,6 @@ extension Resolver {
         registerDomain()
         registerPresentation()
     }
-    
 }
 
 extension Resolver {
@@ -31,14 +30,28 @@ extension Resolver {
         register {
             GraphQLNetworkService(networkService: resolve(NetworkServiceType.self))
         }.implements(GraphQLNetworkServiceType.self)
-    }
-    
-    static func registerDomain(){
+        
+        register {
+            RickAndMortyGraphQLRepositories(graphQLNetworkService: resolve(GraphQLNetworkServiceType.self))
+        }.implements(RickAndMortyGraphQLRepositoriesType.self)
         
     }
     
+    static func registerDomain(){
+        register {
+            GetCharactersUseCase(repository: resolve(RickAndMortyGraphQLRepositoriesType.self))
+        }.implements( AnyUseCase< Int, CharacterResultObject>.self)
+    }
+    
     static func registerPresentation(){
-            
+        register(SearchCharacterViewModel.self){ _ in
+            return SearchCharacterViewModel(getCharactersUseCase: resolve(AnyUseCase< Int, CharacterResultObject>.self))
+        }
+        
+        register(DetailCharacterViewModel.self){ _ in
+            return DetailCharacterViewModel()
+        }
+        
     }
     
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol RickAndMortyGraphQLRepositoriesType {
-    func getCharacters(page: Int = 1, filter: CharacterFilter? = nil) async throws -> CharactersObject
+    func getCharacters(page: Int, filter: CharacterFilter?) async throws -> CharacterResultObject
 }
