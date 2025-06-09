@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		652C6FB12DF720990053896E /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 652C6FB02DF720990053896E /* SkeletonUI */; };
+		652C6FB42DF720A70053896E /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 652C6FB32DF720A70053896E /* Resolver */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		65FA97512DF670ED00E02D1A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				652C6FB42DF720A70053896E /* Resolver in Frameworks */,
+				652C6FB12DF720990053896E /* SkeletonUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +119,8 @@
 			);
 			name = "AppRick&Morty";
 			packageProductDependencies = (
+				652C6FB02DF720990053896E /* SkeletonUI */,
+				652C6FB32DF720A70053896E /* Resolver */,
 			);
 			productName = "AppRick&Morty";
 			productReference = 65FA97422DF670EB00E02D1A /* AppRick&Morty.app */;
@@ -178,6 +187,7 @@
 					};
 					65FA974F2DF670ED00E02D1A = {
 						CreatedOnToolsVersion = 16.4;
+						LastSwiftMigration = 1640;
 						TestTargetID = 65FA97412DF670EB00E02D1A;
 					};
 					65FA97592DF670ED00E02D1A = {
@@ -195,6 +205,10 @@
 			);
 			mainGroup = 65FA97392DF670EB00E02D1A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				652C6FAF2DF720990053896E /* XCRemoteSwiftPackageReference "SkeletonUI" */,
+				652C6FB22DF720A70053896E /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 65FA97432DF670EB00E02D1A /* Products */;
 			projectDirPath = "";
@@ -461,6 +475,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -472,6 +487,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppRick&Morty.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AppRick&Morty";
@@ -483,6 +499,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -583,6 +600,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		652C6FAF2DF720990053896E /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CSolanaM/SkeletonUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
+		652C6FB22DF720A70053896E /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		652C6FB02DF720990053896E /* SkeletonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 652C6FAF2DF720990053896E /* XCRemoteSwiftPackageReference "SkeletonUI" */;
+			productName = SkeletonUI;
+		};
+		652C6FB32DF720A70053896E /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 652C6FB22DF720A70053896E /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 65FA973A2DF670EB00E02D1A /* Project object */;
 }
