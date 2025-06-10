@@ -8,14 +8,17 @@
 import Foundation
 
 struct APICharactersResponse: Codable {
-    let data: CharactersData
-    
-    struct CharactersData: Codable {
-        let characters: APICharacterResultResponse
+    let dataContent: APICharactersData
+    enum CodingKeys: String, CodingKey {
+        case dataContent = "data"
     }
 }
 
+struct APICharactersData: Codable {
+    let characters: APICharacterResultResponse
+}
+
 struct APICharacterResultResponse: Codable {
-    var info: APIInfoResponse
-    var results: [APICharacterResponse]
+    let info: APIInfoResponse
+    let results: [APICharacterResponse]
 }

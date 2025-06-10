@@ -8,9 +8,9 @@
 import Foundation
 
 struct APILocationResponse: Codable {
-    var name: String
+    let name: String
 }
 
 struct APIEpisodeResponse: Codable {
-    var name: String
+    let name: String
 }

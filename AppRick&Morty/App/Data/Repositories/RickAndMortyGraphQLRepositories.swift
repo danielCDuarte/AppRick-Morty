@@ -9,7 +9,6 @@ import Foundation
 
 class RickAndMortyGraphQLRepositories: RickAndMortyGraphQLRepositoriesType {
     
-    
     private(set) var graphQLNetworkService: GraphQLNetworkServiceType
     
     init(graphQLNetworkService: GraphQLNetworkServiceType) {
@@ -68,6 +67,6 @@ class RickAndMortyGraphQLRepositories: RickAndMortyGraphQLRepositoriesType {
         let request = GraphQLRequest<APICharactersResponse>(query: query)
         let response = try await graphQLNetworkService.fetch(request, queue: .main)
         
-        return CharacterResultMapper.map(input: response.data.characters)
+        return CharacterResultMapper.map(input: response.dataContent.characters)
     }
 }

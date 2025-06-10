@@ -17,10 +17,9 @@ final class SearchCharacterState: ObservableObject {
     @Published var searchText = ""
     
     enum Constants {
-        static let title = "Search characters"
+        static let title = "Search"
         static let error = "An error has occurred."
         static let errorMessage = "An error has occurred, please try again later."
         static let accept = "Ok"
-        static let searchCharacters = "Search characters"
     }
 }

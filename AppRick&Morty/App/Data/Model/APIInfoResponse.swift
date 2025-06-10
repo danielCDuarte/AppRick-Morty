@@ -8,8 +8,8 @@
 import Foundation
 
 struct APIInfoResponse: Codable {
-    var count: Int
-    var pages: Int
-    var next: Int?
-    var prev: Int?
+    let count: Int
+    let pages: Int
+    let next: Int?
+    let prev: Int?
 }

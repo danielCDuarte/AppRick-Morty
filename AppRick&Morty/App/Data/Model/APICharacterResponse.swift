@@ -8,15 +8,15 @@
 import Foundation
 
 struct APICharacterResponse: Codable {
-    var id: String
-    var name: String
-    var status: String
-    var species: String
-    var type: String
-    var gender: String
-    var origin: APILocationResponse
-    var location: APILocationResponse
-    var image: String
-    var episode: [APIEpisodeResponse]
-    var created: String
+    let id: String
+    let name: String
+    let status: String
+    let species: String
+    let type: String
+    let gender: String
+    let origin: APILocationResponse
+    let location: APILocationResponse
+    let image: String
+    let episode: [APIEpisodeResponse]
+    let created: String
 }
