@@ -1,4 +1,4 @@
-# App Dogs
+# App Rick&Morty
 
 Prueba Técnica - App Rick&Morty
 
