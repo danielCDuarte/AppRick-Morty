@@ -10,6 +10,7 @@ import Foundation
 
 final class SearchCharacterViewModel: BaseViewModel {
     @Published var state = SearchCharacterState()
+    @Injected private var coordinator: AppCoordinator
     private var characters: [CharacterObject] = []
     private var currentPage = 1
     private var totalPages = 1
@@ -82,6 +83,12 @@ final class SearchCharacterViewModel: BaseViewModel {
 }
 
 extension SearchCharacterViewModel: SearchCharacterViewModelType {
+    
+    func didSelectCharacter(_ character: CharacterObject?) {
+        guard let character = character else { return }
+        coordinator.navigateTo(.characterDetail(character))
+    }
+    
     func loadMoreContentIfNeeded(currentItem item: CharacterObject?) {
         guard let item = item,
               !isFetching,

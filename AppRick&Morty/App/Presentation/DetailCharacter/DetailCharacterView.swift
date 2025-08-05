@@ -23,6 +23,22 @@ struct DetailCharacterView<ViewModelType>: View where ViewModelType: DetailChara
             }
             .navigationTitle(DetailCharacterState.Constants.title)
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        viewModel.goBack()
+                    }) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "chevron.left")
+                                .font(.system(size: 16, weight: .medium))
+                            Text("Search")
+                                .font(.system(size: 16))
+                        }
+                        .foregroundColor(.blue)
+                    }
+                }
+            }
     }
     
     private var contentView: some View {

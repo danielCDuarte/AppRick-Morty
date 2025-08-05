@@ -15,16 +15,17 @@ struct SearchCharacterView<ViewModelType>: View where ViewModelType: SearchChara
     
     var body: some View {
         NavigationStack {
-            SkeletonList(with: viewModel.state.searchText.isEmpty ? viewModel.state.characters : viewModel.state.searchCharacters ,
+            SkeletonList(with: viewModel.state.searchText.isEmpty ? viewModel.state.characters : viewModel.state.searchCharacters,
                          quantity: viewModel.state.numberSkeletonCell) { loading, character in
-                NavigationLink {
-                    DetailCharacterView<DetailCharacterViewModel>(character: character)
-                }label: {
-                    CharacterCell(character: character, loading: loading)
-                }
-                .onAppear {
-                    viewModel.loadMoreContentIfNeeded(currentItem: character)
-                }
+                
+                CharacterCell(character: character, loading: loading)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        viewModel.didSelectCharacter(character)
+                    }
+                    .onAppear {
+                        viewModel.loadMoreContentIfNeeded(currentItem: character)
+                    }
             }
                          .refreshable {
                              isRefreshing = true

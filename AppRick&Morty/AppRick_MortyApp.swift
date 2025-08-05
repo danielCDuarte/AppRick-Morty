@@ -9,11 +9,15 @@ import SwiftUI
 
 @main
 struct AppRick_MortyApp: App {
-    let factory = Factory(baseUrl: DataConstants.baseUrl)
+    init() {
+        print("🚀 Starting app initialization...")
+        DependencyManager.shared.registerCoreDependencies(with: DataConstants.baseUrl)
+        print("✅ App initialization completed")
+    }
     
     var body: some Scene {
         WindowGroup {
-            SearchCharacterView<SearchCharacterViewModel>()
+            ContentView()
         }
     }
 }

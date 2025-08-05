@@ -11,4 +11,5 @@ import SwiftUI
 protocol DetailCharacterViewModelType: ObservableObject {
     var state: DetailCharacterState { get set }
     func onDisAppear()
+    func goBack()
 }

@@ -15,4 +15,5 @@ protocol SearchCharacterViewModelType: ObservableObject {
     func onDisAppear()
     func refreshData()
     func loadMoreContentIfNeeded(currentItem item: CharacterObject?)
+    func didSelectCharacter(_ character: CharacterObject?)
 }

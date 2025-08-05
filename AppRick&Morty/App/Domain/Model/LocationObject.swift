@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct LocationObject {
+struct LocationObject: Hashable {
     var name: String
 }

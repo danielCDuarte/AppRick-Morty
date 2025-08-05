@@ -12,9 +12,13 @@ import Foundation
 final class DetailCharacterViewModel: BaseViewModel {
     private var character: CharacterObject?
     @Published var state = DetailCharacterState()
+    @Injected private var coordinator: AppCoordinator
 }
 
 extension DetailCharacterViewModel: DetailCharacterViewModelType {
+    func goBack() {
+        coordinator.navigateBack()
+    }
     
     func onDisAppear() {
         loading = false
